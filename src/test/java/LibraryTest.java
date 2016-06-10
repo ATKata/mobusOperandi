@@ -1,3 +1,4 @@
+import org.junit.Ignore;
 import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -9,8 +10,53 @@ import static org.assertj.core.api.Assertions.assertThat;
  * @author Alec.Tunbridge, @date 23/05/16 13:37
  */
 public class LibraryTest {
-    @Test public void testSomeLibraryMethod() {
+    @Test
+    public void test_I_Plus_I_Is_II() {
         Library classUnderTest = new Library();
-        assertThat(classUnderTest.someLibraryMethod()).isTrue();
+        String answer = classUnderTest.add("I", "I");
+        assertThat(answer).isEqualTo("II");
+    }
+
+    @Test
+    public void test_I_Plus_II_Is_II() {
+        Library classUnderTest = new Library();
+        String answer = classUnderTest.add("I", "II");
+        assertThat(answer).isEqualTo("III");
+    }
+
+    @Test
+    public void test_II_Plus_II_Is_IV() {
+        Library classUnderTest = new Library();
+        String answer = classUnderTest.add("II", "II");
+        assertThat(answer).isEqualTo("IV");
+    }
+
+    @Test
+    public void test_II_Plus_III_Is_V() {
+        Library classUnderTest = new Library();
+        String answer = classUnderTest.add("II", "III");
+        assertThat(answer).isEqualTo("V");
+    }
+
+    @Test
+    public void test_V_Plus_V_Is_X() {
+        Library classUnderTest = new Library();
+        String answer = classUnderTest.add("V", "V");
+        assertThat(answer).isEqualTo("X");
+    }
+
+    @Test
+    public void test_IV_Plus_I_Is_V() {
+        Library classUnderTest = new Library();
+        String answer = classUnderTest.add("IV", "I");
+        assertThat(answer).isEqualTo("V");
+    }
+
+
+    @Test
+    public void test_IV_Plus_V_Is_IX() {
+        Library classUnderTest = new Library();
+        String answer = classUnderTest.add("IV", "V");
+        assertThat(answer).isEqualTo("IX");
     }
 }
